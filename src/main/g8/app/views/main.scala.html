@@ -1,0 +1,33 @@
+@this(webJarsUtil: org.webjars.play.WebJarsUtil)
+@(title: String)(content: Html)
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        @webJarsUtil.locate("bootstrap.min.css").css()
+
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+
+        <link rel="shotcut icon" typ="image/png" sizes="32x32" href="@routes.Assets.versioned("images/favicon-32x32.png")">
+        <link rel="icon" typ="image/png" sizes="16x16" href="@routes.Assets.versioned("images/favicon-16x16.png")">
+        <link rel="apple-touch-icon" sizes="180x180" href="@routes.Assets.versioned("images/apple-touch-icon.png")">
+        <link rel="manifest" href="@routes.Assets.versioned("site.webmanifest")">
+        <link rel="mask-icon" href="@routes.Assets.versioned("images/safari-pinned-tab.svg")" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+
+        <title>@title</title>
+    </head>
+    <body>
+        @content
+
+        @webJarsUtil.locate("jquery.min.js").script()
+        @webJarsUtil.locate("umd/popper.min.js").script()
+        @webJarsUtil.locate("bootstrap.min.js").script()
+
+        <script src="@routes.Assets.versioned("javascripts/main.js")" typ="text/javascript"></script>
+    </body>
+</html>
